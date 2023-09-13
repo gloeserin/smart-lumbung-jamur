@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lumbung_jamur/screen/login_screen.dart';
+import 'package:lumbung_jamur/screen/login_screen.dart';
+import 'package:lumbung_jamur/screen/menu_screen.dart';
+import 'package:page_animation_transition/animations/fade_animation_transition.dart';
+import 'package:page_animation_transition/page_animation_transition.dart';
+import '../utils/global_color.dart';
+
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -11,246 +19,203 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1F4F8),
-      body: Column(children: [
-        Container(
-          alignment: Alignment.topCenter,
-          margin: const EdgeInsets.only(
-              top: 28.0), // Sesuaikan dengan posisi top yang diinginkan
-          child: Row(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Profile',
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w800,
-                  color: Color(0xFF637E5B),
-                ),
-              ),
-             
-            ],
-          ),
-        ),
-        Container(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        image: AssetImage(
-                      'assets/img/pp.png',
-                    ))),
-              ),
-              Positioned(
-                  right: 4,
-                  bottom: 4,
+              FractionalTranslation(
+                translation: Offset(0.0, -0.1), // Ubah nilai Offset sesuai dengan posisi yang Anda inginkan (lebih atas)
+                child: Align(
+                  alignment: Alignment.center,
                   child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/img/logout2.png",
+                          width: 300,
+                          height: 300,
+                        ),
+                        Text(
+                          'Smart Lumbung Jamur',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontFamily: 'PoppinsMedium',
+                            color: GlobalColors.darkbrown,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Terima kasih telah memakai aplikasi kami!",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12.5,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          title: Row(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.circleExclamation,
+                                color: GlobalColors.darkbrown,
+                                size: 20,
+                              ),
+                              SizedBox(width: 12),
+                              Text(
+                                'INFORMASI',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  fontFamily: 'PoppinsBold',
+                                  color: GlobalColors.darkbrown,
+                                ),
+                              ),
+                            ],
+                          ),
+                          content: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Apakah anda yakin akan logout?',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: 'PoppinsMedium',
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                          actions: [
+                            Padding(
+                              padding: const EdgeInsets.all(14),
+                              child: Container(
+                                width: double.maxFinite,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white,
+                                          primary: Colors.white,
+                                          onPrimary: GlobalColors.darkbrown,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            side: BorderSide(
+                                              width: 1,
+                                              color: Color.fromARGB(
+                                                  255, 113, 60, 13),
+                                            ),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Batal',
+                                          style: TextStyle(
+                                            color: GlobalColors.darkbrown,
+                                            fontFamily: 'PoppinsSemiBold',
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 16),
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pushAndRemoveUntil(
+                                            context,
+                                            PageAnimationTransition(
+                                              page: LoginScreen(),
+                                              pageAnimationType:
+                                                  FadeAnimationTransition(),
+                                            ),
+                                            (route) => false,
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              GlobalColors.darkbrown,
+                                          primary: GlobalColors.darkbrown,
+                                          onPrimary: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Ya',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'PoppinsSemiBold',
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: GlobalColors.darkbrown,
+                    foregroundColor: Colors.white, // text color
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 115,
+                      vertical: 15,
+                    ), // button padding
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(14), // button border radius
+                    ),
+                  ),
+                  child: Text(
+                    "Logout",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'PoppinsSemiBold',
                       color: Colors.white,
                     ),
-                    child: const Icon(
-                      Icons.camera_alt,
-                      size: 20,
-                      color: Color(0xff476072),
+                  ),
+                )
+                      ],
                     ),
-                  ))
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-        const SizedBox(height: 20),
-        Container(
-          width: 350,
-          height: 350,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(0, 3),
-              )
-            ],
-          ),
-          child: Card(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 8),
-                      child: Column(
-                        children: [
-                          Positioned(
-                              top: 16,
-                              left: 16,
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      'Username',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Smarthome',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Host',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'rmq2.pptik.id',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Virtual Host',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      '/smarthome',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Topic Publish',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'smartAgriculturePhone1',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Topic Publish',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'SmartAgriculture',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Guid Device',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                    Text(
-                                      '000000000000000000',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF476072),
-                                      ),
-                                    ),
-                                  ])),
-                        ],
-                      ),
-                    ),
-                  ]),
-                ],
-              ),
-            ),
-          ),
-        ),
-        Container(
-          width: 350,
-          height: 40,
-          decoration:
-              BoxDecoration(borderRadius: BorderRadius.circular(8), boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 2,
-              blurRadius: 6,
-              offset: const Offset(0, 3),
-            ),
-          ]),
-          child: Card(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8)
-            ),
-            child: GestureDetector(
-              onTap: () {
-                // Aksi ketika card ditekan
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => HalamanBaru(),
-                //   ),
-                // );
-              },
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-              ),
-
-            ),
-          ),
-        )
-      ]),
+      ),
     );
   }
 }
