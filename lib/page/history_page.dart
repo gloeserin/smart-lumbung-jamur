@@ -34,23 +34,24 @@ class _HistoryPageState extends State<HistoryPage> {
                                   'Mushroom Home',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 24,
+                                      fontSize: 20,
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFF334257)),
+                                      color: Color(0xFF665A48),
+                                    ),
                                 ),
                                 Text(
                                   '16:00:53',
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFF548CA8)),
+                                      color: Color(0xFFA4907C)),
                                 ),
                                 Text(
                                   '19/05/2022',
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFF548CA8)),
+                                      color: Color(0xFFA4907C)),
                                 ),
                               ]),
                             ),
@@ -72,9 +73,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                           'Suhu Maks',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF334257),
+                                           color: Color(0xFF665A48),
                                           ),
                                         ),
                                         Text(
@@ -82,7 +83,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF548CA8),
+                                            color: Color(0xFFA4907C),
                                           ),
                                         ),
                                       ],
@@ -93,9 +94,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                           'Suhu Min',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF334257),
+                                            color: Color(0xFF665A48),
                                           ),
                                         ),
                                         Text(
@@ -103,7 +104,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF548CA8),
+                                            color: Color(0xFFA4907C),
                                           ),
                                         ),
                                       ],
@@ -128,9 +129,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                           'Penyiraman 1x',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 18,
+                                            fontSize: 16,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF334257),
+                                           color: Color(0xFF665A48),
                                           ),
                                         ),
                                         Text(
@@ -138,7 +139,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFF548CA8),
+                                            color: Color(0xFFA4907C),
                                           ),
                                         ),
                                       ],
@@ -161,9 +162,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'Penyiraman 2x',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF334257),
+                                          color: Color(0xFF665A48),
                                         ),
                                       ),
                                       Text(
@@ -171,7 +172,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF548CA8),
+                                          color: Color(0xFFA4907C),
                                         ),
                                       ),
                                     ],
@@ -187,7 +188,7 @@ class _HistoryPageState extends State<HistoryPage> {
                             Text(
                               'Tap ',
                               style: TextStyle(
-                                  fontSize: 16, color: Color(0xFF548CA8)),
+                                  fontSize: 16, color: Color(0xFFA4907C)),
                             ),
                             Text(
                               'anywhere ',
@@ -196,7 +197,7 @@ class _HistoryPageState extends State<HistoryPage> {
                             Text(
                               'to close',
                               style: TextStyle(
-                                  fontSize: 16, color: Color(0xFF548CA8)),
+                                  fontSize: 16, color: Color(0xFFA4907C)),
                             )
                           ],
                         )
@@ -334,7 +335,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'SENIN',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       SizedBox(
@@ -344,13 +345,13 @@ class _HistoryPageState extends State<HistoryPage> {
                                         '12/10/2021',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    width: 175,
+                                    width: 170,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -404,7 +405,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'SENIN',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       SizedBox(
@@ -414,13 +415,13 @@ class _HistoryPageState extends State<HistoryPage> {
                                         '12/10/2021',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    width: 175,
+                                    width: 170,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -474,7 +475,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'SENIN',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       SizedBox(
@@ -484,13 +485,13 @@ class _HistoryPageState extends State<HistoryPage> {
                                         '12/10/2021',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    width: 175,
+                                    width: 170,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -544,7 +545,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'SENIN',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       SizedBox(
@@ -554,13 +555,13 @@ class _HistoryPageState extends State<HistoryPage> {
                                         '12/10/2021',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    width: 175,
+                                    width: 170,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -614,7 +615,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         'SENIN',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                         ),
                                       ),
                                       SizedBox(
@@ -624,13 +625,13 @@ class _HistoryPageState extends State<HistoryPage> {
                                         '12/10/2021',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    width: 175,
+                                    width: 170,
                                   ),
                                   GestureDetector(
                                     onTap: () {
@@ -743,7 +744,7 @@ class _HistoryPageState extends State<HistoryPage> {
       //                                       text: ' info',
       //                                       style: TextStyle(
       //                                           fontSize: 14.0,
-      //                                           color: Color(0xFF548CA8),
+      //                                           color: Color(0xFFA4907C),
       //                                           fontFamily: 'Poppins'),
       //                                       recognizer: TapGestureRecognizer()
       //                                         ..onTap = () {
@@ -832,7 +833,7 @@ class _HistoryPageState extends State<HistoryPage> {
       //                               text: ' info',
       //                               style: TextStyle(
       //                                   fontSize: 14.0,
-      //                                   color: Color(0xFF548CA8),
+      //                                   color: Color(0xFFA4907C),
       //                                   fontFamily: 'Poppins'),
       //                               recognizer: TapGestureRecognizer()
       //                                 ..onTap = () {
@@ -923,7 +924,7 @@ class _HistoryPageState extends State<HistoryPage> {
       //                               text: ' info',
       //                               style: TextStyle(
       //                                   fontSize: 14.0,
-      //                                   color: Color(0xFF548CA8),
+      //                                   color: Color(0xFFA4907C),
       //                                   fontFamily: 'Poppins'),
       //                               recognizer: TapGestureRecognizer()
       //                                 ..onTap = () {
