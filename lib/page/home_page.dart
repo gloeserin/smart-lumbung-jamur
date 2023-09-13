@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
+import 'package:material_dialogs/widgets/buttons/icon_button.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -21,6 +24,7 @@ class _HomePageState extends State<HomePage>
 
   final List<double> _waveHeight = [0.27, 0.3];
   bool testing = false;
+  bool isSwitched = false;
 
   @override
   void initState() {
@@ -63,14 +67,9 @@ class _HomePageState extends State<HomePage>
               Stack(
                 children: [
                   Container(
-                    height: 140,
+                    height: 230,
                     width: double.infinity,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/background_home.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    color: GlobalColors.darkbrown,
                   ),
                   Column(
                     children: [
@@ -79,101 +78,59 @@ class _HomePageState extends State<HomePage>
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  alignment: Alignment.topLeft,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text:
-                                              "Hello, Raditya Arya Wiguna",
-                                                  // "${truncateText(userName, 32)}",
-                                              style: const TextStyle(
-                                                fontFamily: 'PoppinsBold',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: formatDateTime(
-                                                  DateTime.now()),
-                                              style: const TextStyle(
-                                                fontFamily: 'PoppinsMedium',
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromARGB(
-                                                    255, 227, 226, 226),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            Container(
-                              alignment: Alignment.topRight,
-                              child: Row(
+                            RichText(
+                              text: TextSpan(
                                 children: [
-                                  // IconButton(
-                                  //     onPressed: () {
-                                  //       setState(() {
-                                  //         refresh().then((_) {
-                                  //           getStatusOpen('pattern');
-                                  //         });
-                                  //       });
-                                  //     },
-                                  //     icon: Icon(
-                                  //       Icons.refresh,
-                                  //       color: Colors.white,
-                                  //       size: 40,
-                                  //     )),
-                                  // ElevatedButton.icon(
-                                  //     onPressed: () {
-                                  //       refresh();
-                                  //     },
-                                  //     icon: Icon(Icons.refresh),
-                                  //     label: Text("")),
-                                  // const SizedBox(width: 15),
-                                  // Tooltip(
-                                  //   message: 'Notifications',
-                                  //   child: IconButton(
-                                  //     icon: const Icon(
-                                  //       Icons.notifications,
-                                  //       color: Colors.white,
-                                  //     ),
-                                  //     onPressed: () {
-                                  //       Navigator.push(
-                                  //         context,
-                                  //         MaterialPageRoute(
-                                  //           builder: (context) =>
-                                  //               const NotificationPage(),
-                                  //         ),
-                                  //       );
-                                  //     },
-                                  //   ),
-                                  // ),
+                                  TextSpan(
+                                    text: "Hello, Raditya Arya Wiguna",
+                                    // "${truncateText(userName, 32)}",
+                                    style: const TextStyle(
+                                      fontFamily: 'PoppinsBold',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: formatDateTime(DateTime.now()),
+                                    style: const TextStyle(
+                                      fontFamily: 'PoppinsMedium',
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 227, 226, 226),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            notificationButton(
+                                context: context,
+                                backgroundColor:
+                                    Color.fromARGB(255, 164, 211, 113),
+                                icon: FontAwesomeIcons.temperatureHalf,
+                                mainText: "Suhu ruangan stabil !",
+                                subText:
+                                    "Penyiraman selesai, suhu kembali normal"),
+                            // BUAT KONDISI KALO SUHUNYA LEBIH DRI 35
+                            // notificationButton(
+                            //   context: context,
+                            //   backgroundColor:
+                            //     Color.fromARGB(255, 113, 183, 211),
+                            //   icon: FontAwesomeIcons.shower,
+                            //   mainText: "Suhu ruangan lebih dari 30 °C!",
+                            //   subText: "Penyiraman otomatis dilakukan"),
                           ],
                         ),
                       ),
@@ -181,44 +138,294 @@ class _HomePageState extends State<HomePage>
                         height: 15,
                       ),
                       Container(
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20)),
-                              color: Color.fromARGB(255, 254, 254, 254)),
-                          width: double.infinity,
-                          height: 760,
-                          child: Padding(
-                            padding: const EdgeInsets.all(23),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Stack(
-                                  children: [
-                                      notificationButton(
-                                          context: context,
-                                          backgroundColor:
-                                              Color.fromARGB(255, 1, 52, 93),
-                                          icon: FontAwesomeIcons.clock,
-                                          mainText: "Please Clock In,",
-                                          subText: "to start your work today"),
-                                      // notificationButton(
-                                      //     context: context,
-                                      //     backgroundColor:
-                                      //         Color.fromARGB(255, 1, 52, 93),
-                                      //     icon: FontAwesomeIcons.userCheck,
-                                      //     mainText: "You are In !",
-                                      //     subText:
-                                      //         "Happy working and keep spirit (Home Screen)")
-                                  ],
-                                ),
-                                SizedBox(height: 16),
-                                Container(
-                                  
-                                ),
-                              ],
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                          color: Color.fromARGB(255, 254, 254, 254),
+                        ),
+                        width: double.infinity,
+                        child: Padding(
+  padding: const EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 20),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Menyusun widget ke pojok kiri
+          children: [
+            Container(
+              width: 110,
+              height: 200,
+              child: ClipPath(
+                clipper: HomePageClipper(),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromARGB(255, 245, 245, 245),
+                        Color.fromARGB(255, 153, 191, 225),
+                      ],
+                    ),
+                  ),
+                  child: AnimatedBuilder(
+                    animation: _waveHeightAnimation,
+                    builder: (context, child) {
+                      return WaveWidget(
+                        config: CustomConfig(
+                          gradients: [
+                            [Colors.red, Color.fromARGB(255, 194, 113, 113)],
+                            [const Color.fromARGB(255, 223, 138, 138), const Color.fromARGB(255, 217, 75, 73)],
+                          ],
+                          durations: [5000, 4000],
+                          heightPercentages: _waveHeightAnimation.value,
+                          blur: const MaskFilter.blur(BlurStyle.solid, 5),
+                          gradientBegin: Alignment.bottomLeft,
+                          gradientEnd: Alignment.topRight,
+                        ),
+                        waveAmplitude: 4,
+                        size: const Size(double.infinity, double.infinity),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 90,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Suhu ruangan saat ini,",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color.fromARGB(255, 1, 52, 93),
+                              fontFamily: "PoppinsMedium",
                             ),
-                          )),
+                          ),
+                          Text(
+                            "34 °C",
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'PoppinsBold',
+                              color: Color.fromARGB(255, 1, 52, 93),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: GlobalColors.lightbrown,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 155, 155, 155).withOpacity(0.5), 
+                          spreadRadius: 3, 
+                          blurRadius: 5, 
+                          offset: Offset(0, 3), 
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.droplet,
+                            size: 35,
+                            color: GlobalColors.wateringcolor,
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8, bottom: 8),
+                            child: Container(
+                              child: Column(
+                                crossAxisAlignment:
+                                    CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Kelembapan",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'PoppinsBold',
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                  Text(
+                                    "80 %",
+                                    style: TextStyle(
+                                      fontSize: 28,
+                                      fontFamily: 'PoppinsSemiBold',
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      SizedBox(height: 30),
+      Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Penyiraman Manual", style: TextStyle(fontSize: 13, fontFamily: 'PoppinsBold', color: GlobalColors.darkbrown),),
+                        SizedBox(width: 16,),
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Switch(
+                            value: isSwitched,
+                            onChanged: (value) {
+                              setState(() {
+                                isSwitched = value;
+                                print(isSwitched);
+                                if (isSwitched) {
+                                   showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(14),
+                                      ),
+                                      title: Row(
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.circleExclamation,
+                                            color: GlobalColors.darkbrown,
+                                            size: 20,
+                                          ),
+                                          SizedBox(width: 12),
+                                          Text(
+                                            'INFORMASI',
+                                            style: TextStyle(
+                                              fontSize: 17,
+                                              fontFamily: 'PoppinsBold',
+                                              color: GlobalColors.darkbrown,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      content: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            'Apakah anda yakin akan melakukan penyiraman tambahan ini?',
+                                            style: TextStyle(
+                                                fontSize: 12,
+                                                fontFamily: 'PoppinsMedium',
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                      actions: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(14),
+                                          child: Container(
+                                            width: double.maxFinite,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: IconsButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context).pop(); 
+                                                      setState(() {
+                                                        isSwitched = false; 
+                                                      });
+                                                    },
+                                                    text: 'Batal',
+                                                    padding: EdgeInsets.symmetric(
+                                                        horizontal: 16, vertical: 14),
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(16),
+                                                      side: BorderSide(
+                                                          width: 1,
+                                                          color: Color.fromARGB(255, 113, 60, 13)), // Menambahkan warna abu pada border
+                                                    ),
+                                                    color: Colors.white,
+                                                    textStyle: TextStyle(
+                                                      color: GlobalColors.darkbrown,
+                                                      fontFamily: 'PoppinsSemiBold',
+                                                      fontSize: 12,
+                                                    ),
+                                                    iconColor: Colors.white,
+                                                  ),
+                                                ),
+                                                SizedBox(width: 16),
+                                                Expanded(
+                                                  child: IconsButton(
+                                                    onPressed: () {
+                                                      
+                                                    },
+                                                    text: 'Ya',
+                                                    padding: EdgeInsets.symmetric(
+                                                        horizontal: 16, vertical: 14),
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(16),
+                                                    ),
+                                                    color: GlobalColors.darkbrown,
+                                                    textStyle: TextStyle(
+                                                      color: Colors.white,
+                                                      fontFamily: 'PoppinsSemiBold',
+                                                      fontSize: 12,
+                                                    ),
+                                                    iconColor: Colors.white,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                    },
+                                  );
+                                }
+                              });
+                            },
+                            activeTrackColor: GlobalColors.wateringcolor,
+                            activeColor: GlobalColors.lightbrown,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+    ],
+  ),
+)
+
+                      )
                     ],
                   ),
                 ],
@@ -229,6 +436,7 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
+
   String formatDateTime(DateTime dateTime) {
     final DateFormat formatter = DateFormat('EEEE, dd MMMM yyyy  |  HH:mm');
     return formatter.format(dateTime);
@@ -336,7 +544,7 @@ class _HomePageState extends State<HomePage>
   //                       Row(
   //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
   //                         children: [
-  //                           Column( 
+  //                           Column(
   //                             children: [
   //                               Padding(padding: EdgeInsets.only(top: 10, left: 40),
   //                                 child: Column(
@@ -360,17 +568,17 @@ class _HomePageState extends State<HomePage>
   //                                     style: TextStyle(
   //                                       fontFamily: 'Poppins',
   //                                       fontSize: 16,
-                                      
+
   //                                       color: Color(0xFF476072),
   //                                     ),
   //                                   ),
-              
+
   //                                   ],
   //                                 ),
   //                               ),
   //                             ],
   //                           ),
-  //                           Column( 
+  //                           Column(
   //                             children: [
   //                               Padding(padding: EdgeInsets.only(top: 10, right: 40),
   //                                 child: Column(
@@ -394,17 +602,17 @@ class _HomePageState extends State<HomePage>
   //                                     style: TextStyle(
   //                                       fontFamily: 'Poppins',
   //                                       fontSize: 16,
-                                      
+
   //                                       color: Color(0xFF476072),
   //                                     ),
   //                                   ),
-              
+
   //                                   ],
   //                                 ),
   //                               ),
   //                             ],
   //                           ),
-              
+
   //                         ],
   //                       ),
   //                       Center(
@@ -424,15 +632,15 @@ class _HomePageState extends State<HomePage>
   //                                     style: TextStyle(
   //                                       fontFamily: 'Poppins',
   //                                       fontSize: 16,
-                                      
+
   //                                       color: Color(0xFF476072),
   //                                     ),
   //                                   ),
-              
+
   //                           ],
   //                         ),
   //                       ),
-                        
+
   //                       Padding(
   //         padding: EdgeInsets.only(bottom: 16), // Atur jarak bottom sebesar 16 piksel
   //         child: ElevatedButton(
@@ -452,7 +660,7 @@ class _HomePageState extends State<HomePage>
   //         ),
   //           ),
   //         ),
-  //             ) 
+  //             )
   //                     ],
   //                   ),
   //                 ),
@@ -471,20 +679,20 @@ class HomePageClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     final path = Path();
     final double centerX = size.width / 2;
-    final double baseY = size.height - 50;
+    final double baseY = size.height - 85;
     final double barWidth = 45;
     final double bodyHeight = size.height - 100;
 
-    path.moveTo(centerX - barWidth / 2, size.height-50);
+    path.moveTo(centerX - barWidth / 2, size.height - 50);
     path.lineTo(centerX - barWidth / 2, baseY - bodyHeight);
     path.lineTo(centerX + barWidth / 2, baseY - bodyHeight);
-    path.lineTo(centerX + barWidth / 2, size.height-50);
+    path.lineTo(centerX + barWidth / 2, size.height - 50);
 
-    final double circleRadius = 45;
+    final double circleRadius = 35;
     final double circleCenterY = baseY + circleRadius;
 
     path.addOval(Rect.fromCircle(
-        center: Offset(centerX, circleCenterY - (circleCenterY * 20 / 200)),
+        center: Offset(centerX, circleCenterY - (circleCenterY * 10 / 180)),
         radius: circleRadius));
     return path;
   }
