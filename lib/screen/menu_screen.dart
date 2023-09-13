@@ -25,7 +25,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar( 
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        backgroundColor: Colors.white,
         color: GlobalColors.lightbrown,
         animationDuration: Duration(milliseconds: 300),
         onTap: (index){ 

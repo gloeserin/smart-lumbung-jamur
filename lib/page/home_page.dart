@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:material_dialogs/widgets/buttons/icon_button.dart';
 import 'package:wave/config.dart';
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage>
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: "Hello, Raditya Arya Wiguna",
+                                    text: "Hai, Raditya Arya Wiguna",
                                     // "${truncateText(userName, 32)}",
                                     style: const TextStyle(
                                       fontFamily: 'PoppinsBold',
@@ -138,294 +139,634 @@ class _HomePageState extends State<HomePage>
                         height: 15,
                       ),
                       Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
-                          color: Color.fromARGB(255, 254, 254, 254),
-                        ),
-                        width: double.infinity,
-                        child: Padding(
-  padding: const EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 20),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Menyusun widget ke pojok kiri
-          children: [
-            Container(
-              width: 110,
-              height: 200,
-              child: ClipPath(
-                clipper: HomePageClipper(),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromARGB(255, 245, 245, 245),
-                        Color.fromARGB(255, 153, 191, 225),
-                      ],
-                    ),
-                  ),
-                  child: AnimatedBuilder(
-                    animation: _waveHeightAnimation,
-                    builder: (context, child) {
-                      return WaveWidget(
-                        config: CustomConfig(
-                          gradients: [
-                            [Colors.red, Color.fromARGB(255, 194, 113, 113)],
-                            [const Color.fromARGB(255, 223, 138, 138), const Color.fromARGB(255, 217, 75, 73)],
-                          ],
-                          durations: [5000, 4000],
-                          heightPercentages: _waveHeightAnimation.value,
-                          blur: const MaskFilter.blur(BlurStyle.solid, 5),
-                          gradientBegin: Alignment.bottomLeft,
-                          gradientEnd: Alignment.topRight,
-                        ),
-                        waveAmplitude: 4,
-                        size: const Size(double.infinity, double.infinity),
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 90,
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Suhu ruangan saat ini,",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color.fromARGB(255, 1, 52, 93),
-                              fontFamily: "PoppinsMedium",
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
                             ),
+                            color: Color.fromARGB(255, 254, 254, 254),
                           ),
-                          Text(
-                            "34 °C",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontFamily: 'PoppinsBold',
-                              color: Color.fromARGB(255, 1, 52, 93),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: GlobalColors.lightbrown,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromARGB(255, 155, 155, 155).withOpacity(0.5), 
-                          spreadRadius: 3, 
-                          blurRadius: 5, 
-                          offset: Offset(0, 3), 
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.droplet,
-                            size: 35,
-                            color: GlobalColors.wateringcolor,
-                          ),
-                          SizedBox(
-                            width: 16,
-                          ),
-                          Padding(
+                          width: double.infinity,
+                          child: Padding(
                             padding: const EdgeInsets.only(
-                                top: 8, bottom: 8),
-                            child: Container(
-                              child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Kelembapan",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'PoppinsBold',
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                  Text(
-                                    "80 %",
-                                    style: TextStyle(
-                                      fontSize: 28,
-                                      fontFamily: 'PoppinsSemiBold',
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      SizedBox(height: 30),
-      Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Penyiraman Manual", style: TextStyle(fontSize: 13, fontFamily: 'PoppinsBold', color: GlobalColors.darkbrown),),
-                        SizedBox(width: 16,),
-                        Transform.scale(
-                          scale: 1.5,
-                          child: Switch(
-                            value: isSwitched,
-                            onChanged: (value) {
-                              setState(() {
-                                isSwitched = value;
-                                print(isSwitched);
-                                if (isSwitched) {
-                                   showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14),
-                                      ),
-                                      title: Row(
-                                        children: [
-                                          Icon(
-                                            FontAwesomeIcons.circleExclamation,
-                                            color: GlobalColors.darkbrown,
-                                            size: 20,
-                                          ),
-                                          SizedBox(width: 12),
-                                          Text(
-                                            'INFORMASI',
-                                            style: TextStyle(
-                                              fontSize: 17,
-                                              fontFamily: 'PoppinsBold',
-                                              color: GlobalColors.darkbrown,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      content: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            'Apakah anda yakin akan melakukan penyiraman tambahan ini?',
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                fontFamily: 'PoppinsMedium',
-                                                color: Colors.black),
-                                          ),
-                                        ],
-                                      ),
-                                      actions: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(14),
+                                left: 20, right: 20, top: 35, bottom: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceBetween, // Menyusun widget ke pojok kiri
+                                    children: [
+                                      Container(
+                                        width: 110,
+                                        height: 200,
+                                        child: ClipPath(
+                                          clipper: HomePageClipper(),
                                           child: Container(
-                                            width: double.maxFinite,
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Expanded(
-                                                  child: IconsButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context).pop(); 
-                                                      setState(() {
-                                                        isSwitched = false; 
-                                                      });
-                                                    },
-                                                    text: 'Batal',
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 16, vertical: 14),
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(16),
-                                                      side: BorderSide(
-                                                          width: 1,
-                                                          color: Color.fromARGB(255, 113, 60, 13)), // Menambahkan warna abu pada border
-                                                    ),
-                                                    color: Colors.white,
-                                                    textStyle: TextStyle(
-                                                      color: GlobalColors.darkbrown,
-                                                      fontFamily: 'PoppinsSemiBold',
-                                                      fontSize: 12,
-                                                    ),
-                                                    iconColor: Colors.white,
+                                            decoration: const BoxDecoration(
+                                              gradient: LinearGradient(
+                                                begin: Alignment.topCenter,
+                                                end: Alignment.bottomCenter,
+                                                colors: [
+                                                  Color.fromARGB(
+                                                      255, 245, 245, 245),
+                                                  Color.fromARGB(
+                                                      255, 153, 191, 225),
+                                                ],
+                                              ),
+                                            ),
+                                            child: AnimatedBuilder(
+                                              animation: _waveHeightAnimation,
+                                              builder: (context, child) {
+                                                return WaveWidget(
+                                                  config: CustomConfig(
+                                                    gradients: [
+                                                      [
+                                                        Colors.red,
+                                                        Color.fromARGB(
+                                                            255, 194, 113, 113)
+                                                      ],
+                                                      [
+                                                        const Color.fromARGB(
+                                                            255, 223, 138, 138),
+                                                        const Color.fromARGB(
+                                                            255, 217, 75, 73)
+                                                      ],
+                                                    ],
+                                                    durations: [5000, 4000],
+                                                    heightPercentages:
+                                                        _waveHeightAnimation
+                                                            .value,
+                                                    blur: const MaskFilter.blur(
+                                                        BlurStyle.solid, 5),
+                                                    gradientBegin:
+                                                        Alignment.bottomLeft,
+                                                    gradientEnd:
+                                                        Alignment.topRight,
                                                   ),
-                                                ),
-                                                SizedBox(width: 16),
-                                                Expanded(
-                                                  child: IconsButton(
-                                                    onPressed: () {
-                                                      
-                                                    },
-                                                    text: 'Ya',
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 16, vertical: 14),
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(16),
-                                                    ),
-                                                    color: GlobalColors.darkbrown,
-                                                    textStyle: TextStyle(
-                                                      color: Colors.white,
-                                                      fontFamily: 'PoppinsSemiBold',
-                                                      fontSize: 12,
-                                                    ),
-                                                    iconColor: Colors.white,
-                                                  ),
-                                                ),
-                                              ],
+                                                  waveAmplitude: 4,
+                                                  size: const Size(
+                                                      double.infinity,
+                                                      double.infinity),
+                                                );
+                                              },
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    );
-                                    },
-                                  );
-                                }
-                              });
-                            },
-                            activeTrackColor: GlobalColors.wateringcolor,
-                            activeColor: GlobalColors.lightbrown,
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-    ],
-  ),
-)
-
-                      )
+                                      ),
+                                      SizedBox(width: 16),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: double.infinity,
+                                              height: 90,
+                                              child: Padding(
+                                                padding: EdgeInsets.all(10),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "Suhu ruangan saat ini,",
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        color:
+                                                            GlobalColors.brown,
+                                                        fontFamily:
+                                                            "PoppinsMedium",
+                                                      ),
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          "28 °C",
+                                                          style: TextStyle(
+                                                            fontSize: 25,
+                                                            fontFamily:
+                                                                'PoppinsBold',
+                                                            color: GlobalColors
+                                                                .brown,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 15,
+                                                        ),
+                                                        //iconnya bakal muncul kalo emang suhunya lebih dri 30 C, dan automatic wateringnya on
+                                                        // Icon(FontAwesomeIcons.cloudRain, color: Color.fromARGB(255, 113, 183, 211),)
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              width: double.infinity,
+                                              height: 100,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                color: GlobalColors.lightbrown,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color.fromARGB(
+                                                            255, 155, 155, 155)
+                                                        .withOpacity(0.5),
+                                                    spreadRadius: 3,
+                                                    blurRadius: 5,
+                                                    offset: Offset(0, 3),
+                                                  ),
+                                                ],
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(8),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      FontAwesomeIcons.droplet,
+                                                      size: 35,
+                                                      color: GlobalColors
+                                                          .wateringcolor,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 16,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 8,
+                                                              bottom: 8),
+                                                      child: Container(
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              "Kelembapan",
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontFamily:
+                                                                    'PoppinsBold',
+                                                                fontSize: 12,
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              "80 %",
+                                                              style: TextStyle(
+                                                                fontSize: 28,
+                                                                fontFamily:
+                                                                    'PoppinsSemiBold',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 30),
+                                Container(
+                                  //buat kondisi kalo automatic wateringnya nyalaa
+                                  // child: Column(
+                                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                                  //   children: [
+                                  //     Text("Penyiraman Manual", style: TextStyle(fontSize: 13, fontFamily: 'PoppinsBold', color: GlobalColors.darkbrown),),
+                                  //     SizedBox(height: 16,),
+                                  //     Container(
+                                  //       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Color.fromARGB(255, 255, 242, 224)),
+                                  //       child: Padding(
+                                  //         padding: const EdgeInsets.all(15),
+                                  //         child: Row(
+                                  //           children: [
+                                  //             Icon(FontAwesomeIcons.circleExclamation, color: Color.fromARGB(255, 215, 160, 96),),
+                                  //             SizedBox(width: 14),
+                                  //             Expanded(
+                                  //               child: Container(
+                                  //                 child: Column(
+                                  //                   children: [
+                                  //                     Text('Penyiraman manual di non-aktifkan sementara, anda dapat menggunakannya setelah proses Automatic Watering selesai !',
+                                  //                     style: TextStyle(fontFamily: 'Poppins', fontSize: 10,
+                                  //                     color: Color.fromARGB(255, 215, 160, 96),)),
+                                  //                   ],
+                                  //                 ),
+                                  //               ),
+                                  //             ),
+                                  //           ],
+                                  //         ),
+                                  //       )
+                                  //     )
+                                  //   ],
+                                  // ),
+                                  // untuk kondisi jika automatic wateringnya udah mati
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Penyiraman Manual",
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            fontFamily: 'PoppinsBold',
+                                            color: GlobalColors.darkbrown),
+                                      ),
+                                      SizedBox(
+                                        width: 16,
+                                      ),
+                                      Transform.scale(
+                                        scale: 1.5,
+                                        child: Switch(
+                                          value: isSwitched,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              isSwitched = value;
+                                              print(isSwitched);
+                                              if (isSwitched) {
+                                                showDialog(
+                                                  context: context,
+                                                  barrierDismissible: false,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return AlertDialog(
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(14),
+                                                      ),
+                                                      title: Row(
+                                                        children: [
+                                                          Icon(
+                                                            FontAwesomeIcons
+                                                                .circleExclamation,
+                                                            color: GlobalColors
+                                                                .darkbrown,
+                                                            size: 20,
+                                                          ),
+                                                          SizedBox(width: 12),
+                                                          Text(
+                                                            'INFORMASI',
+                                                            style: TextStyle(
+                                                              fontSize: 17,
+                                                              fontFamily:
+                                                                  'PoppinsBold',
+                                                              color: GlobalColors
+                                                                  .darkbrown,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      content: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          Text(
+                                                            'Apakah anda yakin akan melakukan penyiraman tambahan ini?',
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontFamily:
+                                                                    'PoppinsMedium',
+                                                                color: Colors
+                                                                    .black),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      actions: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(14),
+                                                          child: Container(
+                                                            width: double
+                                                                .maxFinite,
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      IconsButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                      setState(
+                                                                          () {
+                                                                        isSwitched =
+                                                                            false;
+                                                                      });
+                                                                    },
+                                                                    text:
+                                                                        'Batal',
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            16,
+                                                                        vertical:
+                                                                            14),
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16),
+                                                                      side: BorderSide(
+                                                                          width:
+                                                                              1,
+                                                                          color: Color.fromARGB(
+                                                                              255,
+                                                                              113,
+                                                                              60,
+                                                                              13)), // Menambahkan warna abu pada border
+                                                                    ),
+                                                                    color: Colors
+                                                                        .white,
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      color: GlobalColors
+                                                                          .darkbrown,
+                                                                      fontFamily:
+                                                                          'PoppinsSemiBold',
+                                                                      fontSize:
+                                                                          12,
+                                                                    ),
+                                                                    iconColor:
+                                                                        Colors
+                                                                            .white,
+                                                                  ),
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 16),
+                                                                Expanded(
+                                                                  child:
+                                                                      IconsButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                      showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        barrierDismissible:
+                                                                            false,
+                                                                        builder:
+                                                                            (BuildContext
+                                                                                context) {
+                                                                          return AlertDialog(
+                                                                            shape:
+                                                                                RoundedRectangleBorder(
+                                                                              borderRadius: BorderRadius.circular(16.0),
+                                                                            ),
+                                                                            content:
+                                                                                Container(
+                                                                              decoration: BoxDecoration(
+                                                                                color: Colors.white,
+                                                                                borderRadius: BorderRadius.circular(16.0),
+                                                                              ),
+                                                                              padding: EdgeInsets.all(10),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                children: [
+                                                                                  // Image.asset('assets/img/manualwatering.png', width: 200, height: 200,),
+                                                                                  SizedBox(height: 10),
+                                                                                  Container(
+                                                                                    child: Row(
+                                                                                      children: [
+                                                                                        Expanded(
+                                                                                          child: Container(
+                                                                                            child: Column(
+                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Temperatur',
+                                                                                                  style: TextStyle(
+                                                                                                    fontFamily: 'PoppinsMedium',
+                                                                                                    color: GlobalColors.darkbrown,
+                                                                                                    fontSize: 12,
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  '20 °C',
+                                                                                                  style: TextStyle(
+                                                                                                    fontFamily: 'PoppinsBold',
+                                                                                                    color: GlobalColors.darkbrown,
+                                                                                                    fontSize: 18,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                        SizedBox(
+                                                                                          width: 14,
+                                                                                        ),
+                                                                                        Expanded(
+                                                                                          child: Container(
+                                                                                            child: Column(
+                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                              children: [
+                                                                                                Text(
+                                                                                                  'Kelembapan',
+                                                                                                  style: TextStyle(
+                                                                                                    fontFamily: 'PoppinsMedium',
+                                                                                                    color: GlobalColors.darkbrown,
+                                                                                                    fontSize: 12,
+                                                                                                  ),
+                                                                                                ),
+                                                                                                Text(
+                                                                                                  '80 %',
+                                                                                                  style: TextStyle(
+                                                                                                    fontFamily: 'PoppinsBold',
+                                                                                                    color: GlobalColors.darkbrown,
+                                                                                                    fontSize: 18,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ],
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    height: 14,
+                                                                                  ),
+                                                                                  Container(
+                                                                                    width: double.infinity,
+                                                                                    height: 90,
+                                                                                    decoration: BoxDecoration(
+                                                                                      borderRadius: BorderRadius.circular(10),
+                                                                                      color: Colors.white,
+                                                                                      boxShadow: [
+                                                                                        BoxShadow(
+                                                                                          color: Color.fromARGB(255, 155, 155, 155).withOpacity(0.5),
+                                                                                          spreadRadius: 3,
+                                                                                          blurRadius: 5,
+                                                                                          offset: Offset(0, 3),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                    child: Padding(
+                                                                                      padding: EdgeInsets.all(8),
+                                                                                      child: Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                                        children: [
+                                                                                          Icon(
+                                                                                            FontAwesomeIcons.cloudRain,
+                                                                                            size: 30,
+                                                                                            color: GlobalColors.lightbrown,
+                                                                                          ),
+                                                                                          SizedBox(
+                                                                                            width: 16,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsets.only(top: 8, bottom: 8),
+                                                                                            child: Container(
+                                                                                              child: Column(
+                                                                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                children: [
+                                                                                                  Text(
+                                                                                                    "Waktu penyiraman",
+                                                                                                    style: TextStyle(
+                                                                                                      color: GlobalColors.lightbrown,
+                                                                                                      fontFamily: 'PoppinsBold',
+                                                                                                      fontSize: 9,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  Text(
+                                                                                                    "00 : 00",
+                                                                                                    style: TextStyle(
+                                                                                                      fontSize: 23,
+                                                                                                      fontFamily: 'PoppinsSemiBold',
+                                                                                                      color: GlobalColors.lightbrown,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  SizedBox(height: 40),
+                                                                                  Align(
+                                                                                    alignment: Alignment.center,
+                                                                                    child: RichText(
+                                                                                      text: TextSpan(
+                                                                                        children: [
+                                                                                          TextSpan(
+                                                                                            text: 'Tekan button ini untuk mengakhiri penyiraman',
+                                                                                            style: TextStyle(
+                                                                                              fontSize: 10,
+                                                                                              fontFamily: 'Poppins',
+                                                                                              color: GlobalColors.darkbrown,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    height: 10,
+                                                                                  ),
+                                                                                  IconsButton(
+                                                                                    onPressed: () {
+                                                                                      Navigator.of(context).pop();
+                                                                                      setState(() {
+                                                                                        isSwitched = false;
+                                                                                      });
+                                                                                    },
+                                                                                    text: 'Penyiraman Selesai',
+                                                                                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                                                                                    shape: RoundedRectangleBorder(
+                                                                                      borderRadius: BorderRadius.circular(10),
+                                                                                    ),
+                                                                                    color: GlobalColors.lightbrown,
+                                                                                    textStyle: TextStyle(
+                                                                                      color: Colors.white,
+                                                                                      fontFamily: 'PoppinsSemiBold',
+                                                                                      fontSize: 12,
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    text: 'Ya',
+                                                                    padding: EdgeInsets.symmetric(
+                                                                        horizontal:
+                                                                            16,
+                                                                        vertical:
+                                                                            14),
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              16),
+                                                                    ),
+                                                                    color: GlobalColors
+                                                                        .darkbrown,
+                                                                    textStyle:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontFamily:
+                                                                          'PoppinsSemiBold',
+                                                                      fontSize:
+                                                                          12,
+                                                                    ),
+                                                                    iconColor:
+                                                                        Colors
+                                                                            .white,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            });
+                                          },
+                                          activeTrackColor:
+                                              GlobalColors.wateringcolor,
+                                          activeColor: GlobalColors.lightbrown,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ))
                     ],
                   ),
                 ],
@@ -438,240 +779,10 @@ class _HomePageState extends State<HomePage>
   }
 
   String formatDateTime(DateTime dateTime) {
-    final DateFormat formatter = DateFormat('EEEE, dd MMMM yyyy  |  HH:mm');
-    return formatter.format(dateTime);
-  }
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     backgroundColor: Color(0xFFF1F4F8),
-  //     body: SingleChildScrollView(
-  //       child: SafeArea(
-  //         child: Column(
-  //           children: [
-  //             Container(
-  //               alignment: Alignment.topCenter,
-  //               margin: EdgeInsets.only(
-  //                   top: 28.0), // Sesuaikan dengan posisi top yang diinginkan
-  //               child: Row(
-  //                 mainAxisAlignment: MainAxisAlignment.center,
-  //                 children: [
-  //                   Text(
-  //                     'Hydroponic',
-  //                     style: TextStyle(
-  //                       fontSize: 28.0,
-  //                       fontFamily: 'Poppins',
-  //                       fontWeight: FontWeight.w800,
-  //                       color: Color(0xFF637E5B),
-  //                     ),
-  //                   ),
-  //                   Image(
-  //                     image: AssetImage('assets/img/plant.png'),
-  //                     width: 24.0,
-  //                     height: 24.0,
-  //                   ),
-  //                 ],
-  //               ),
-  //             ),
-  //             Container(
-  //               padding: const EdgeInsets.only(top: 40),
-  //               width: MediaQuery.of(context).size.width,
-  //               height: 380,
-  //               child: ClipPath(
-  //                 clipper: HomePageClipper(),
-  //                 child: Container(
-  //                   decoration: const BoxDecoration(
-  //                     gradient: LinearGradient(
-  //                       begin: Alignment.topCenter,
-  //                       end: Alignment.bottomCenter,
-  //                       colors: [
-  //                         Color.fromARGB(255, 245, 245, 245),
-  //                         Color.fromARGB(255, 153, 191, 225),
-  //                       ],
-  //                     ),
-  //                   ),
-  //                   child: AnimatedBuilder(
-  //                     animation: _waveHeightAnimation,
-  //                     builder: (context, child) {
-  //                       return WaveWidget(
-  //                         config: CustomConfig(
-  //                           gradients: [
-  //                             [Colors.red, Colors.red.shade200],
-  //                             [Colors.red.shade200, Colors.red.shade400],
-  //                           ],
-  //                           durations: [
-  //                             5000,
-  //                             4,
-  //                           ],
-  //                           heightPercentages: _waveHeightAnimation.value,
-  //                           blur: const MaskFilter.blur(BlurStyle.solid, 5),
-  //                           gradientBegin: Alignment.bottomLeft,
-  //                           gradientEnd: Alignment.topRight,
-  //                         ),
-  //                         waveAmplitude: 4,
-  //                         size: const Size(double.infinity, double.infinity),
-  //                       );
-  //                     },
-  //                   ),
-  //                 ),
-  //               ),
-  //             ),
-  //             SizedBox(height: 20),
-  //             Container(
-  //               width: 350,
-  //               height: 250,
-  //               decoration: BoxDecoration(
-  //                 borderRadius: BorderRadius.circular(8),
-  //                 boxShadow: [
-  //                   BoxShadow(
-  //                     color: Colors.grey.withOpacity(0.3),
-  //                     spreadRadius: 2,
-  //                     blurRadius: 5,
-  //                     offset: Offset(0, 3),
-  //                   )
-  //                 ],
-  //               ),
-  //               child: Card(
-  //                 elevation: 0,
-  //                 shape: RoundedRectangleBorder(
-  //                   borderRadius: BorderRadius.circular(8),
-  //                 ),
-  //                 child: Container(
-  //                   width: double.infinity,
-  //                   height: double.infinity,
-  //                   child: Column(
-  //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                     children: [
-  //                       Row(
-  //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                         children: [
-  //                           Column(
-  //                             children: [
-  //                               Padding(padding: EdgeInsets.only(top: 10, left: 40),
-  //                                 child: Column(
-  //                                   children: [
-  //                               Icon(
-  //                                 Icons.settings,
-  //                                 color: Colors.grey[850],
-  //                                 size: 50,
-  //                               ),
-  //                               Text(
-  //                                     'POMPA',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 14,
-  //                                       fontWeight: FontWeight.bold,
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-  //                               Text(
-  //                                     'Off',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 16,
-
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-
-  //                                   ],
-  //                                 ),
-  //                               ),
-  //                             ],
-  //                           ),
-  //                           Column(
-  //                             children: [
-  //                               Padding(padding: EdgeInsets.only(top: 10, right: 40),
-  //                                 child: Column(
-  //                                   children: [
-  //                               Icon(
-  //                                 Icons.water_outlined,
-  //                                 color: Colors.blue[800],
-  //                                 size: 50,
-  //                               ),
-  //                               Text(
-  //                                     'POMPA',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 14,
-  //                                       fontWeight: FontWeight.bold,
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-  //                               Text(
-  //                                     'Off',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 16,
-
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-
-  //                                   ],
-  //                                 ),
-  //                               ),
-  //                             ],
-  //                           ),
-
-  //                         ],
-  //                       ),
-  //                       Center(
-  //                         child: Column(
-  //                           children: [
-  //                              Text(
-  //                                     'Value Sensor',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 18,
-  //                                       fontWeight: FontWeight.bold,
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-  //                              Text(
-  //                                     '-',
-  //                                     style: TextStyle(
-  //                                       fontFamily: 'Poppins',
-  //                                       fontSize: 16,
-
-  //                                       color: Color(0xFF476072),
-  //                                     ),
-  //                                   ),
-
-  //                           ],
-  //                         ),
-  //                       ),
-
-  //                       Padding(
-  //         padding: EdgeInsets.only(bottom: 16), // Atur jarak bottom sebesar 16 piksel
-  //         child: ElevatedButton(
-  //           onPressed: toggleWaveHeight,
-  //           child: Text(
-  //         testing ? 'Reset' : 'Test',
-  //         style: TextStyle(
-  //           fontFamily: 'Poppins',
-  //           fontSize: 16,
-  //           color: Colors.white,
-  //         ),
-  //           ),
-  //           style: ElevatedButton.styleFrom(
-  //         primary: Color(0xFF637E5B),
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(20),
-  //         ),
-  //           ),
-  //         ),
-  //             )
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+  initializeDateFormatting('id_ID', null);
+  final DateFormat formatter = DateFormat('EEEE, dd MMMM yyyy  |  HH:mm', 'id_ID');
+  return formatter.format(dateTime);
+}
 }
 
 class HomePageClipper extends CustomClipper<Path> {

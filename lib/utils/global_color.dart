@@ -11,5 +11,7 @@ class GlobalColors {
   static HexColor blue = HexColor("#2F87D9");
 
   static HexColor wateringcolor = HexColor("#DDCEBF");
+  static HexColor alert = HexColor("#FFEFE7");
+  static HexColor orangealert = HexColor("#E6A372");
 
 }

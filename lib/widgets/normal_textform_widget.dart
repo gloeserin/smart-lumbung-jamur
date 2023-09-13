@@ -17,17 +17,10 @@ Widget notificationButton({
     children: [
       Container(
         width: MediaQuery.of(context).size.width,
-        height: 90,
+        height: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 10,
-              offset: Offset(2, 4),
-              color: Color.fromARGB(255, 221, 221, 221),
-            ),
-          ],
         ),
       ),
       Container(
