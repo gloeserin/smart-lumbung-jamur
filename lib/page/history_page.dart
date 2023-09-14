@@ -34,21 +34,23 @@ class _HistoryPageState extends State<HistoryPage> {
                                 Text(
                                   'Mushroom Home',
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF665A48),
-                                    ),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF665A48),
+                                  ),
                                 ),
-                               
                               ]),
                             ),
-                            
                             const SizedBox(height: 10),
                             Card(
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Color.fromARGB(255, 113, 60, 13),
+                                ),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(16),
@@ -64,7 +66,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
                                             fontFamily: 'Poppins',
-                                           color: Color(0xFF665A48),
+                                            color: Color(0xFF665A48),
                                           ),
                                         ),
                                         Text(
@@ -106,8 +108,13 @@ class _HistoryPageState extends State<HistoryPage> {
                             Card(
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16),
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Color.fromARGB(255, 113, 60, 13),
                                 ),
+                              ),
+                             
                                 child: Container(
                                   width: 350,
                                   child: Padding(
@@ -120,7 +127,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
                                             fontFamily: 'Poppins',
-                                           color: Color(0xFF665A48),
+                                            color: Color(0xFF665A48),
                                           ),
                                         ),
                                         Text(
@@ -140,7 +147,12 @@ class _HistoryPageState extends State<HistoryPage> {
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Color.fromARGB(255, 113, 60, 13),
+                                ),
                               ),
+                              
                               child: Container(
                                 width: 350,
                                 child: Padding(
@@ -254,320 +266,341 @@ class _HistoryPageState extends State<HistoryPage> {
                   topRight: Radius.circular(25),
                 ),
                 child: Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                          SizedBox(
-                              height: 30,
-                            ),
-                      Container(
-                        width: MediaQuery.of(context).size.width *
-                            0.9, // Sesuaikan dengan lebar yang diinginkan
-                        // padding: EdgeInsets.all(10),
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width *
+                              0.9, // Sesuaikan dengan lebar yang diinginkan
+                          // padding: EdgeInsets.all(10),
 
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(16)),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Search',
-                            prefixIcon: Icon(Icons.search),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(16)),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search',
+                              prefixIcon: Icon(Icons.search),
+                            ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: ListView(
-                          padding: EdgeInsets.only(left:20,right:20),
-                          children: [
-                        
-                            
-                            SizedBox(
-                              height: 18,
-                            ),
-                           Container(
-                              width: MediaQuery.of(context).size.width *
-                                  0.9, // Sesuaikan dengan lebar yang diinginkan
-                              padding: EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.2), // Warna bayangan
-                                    spreadRadius: 5, // Menyebarkan bayangan
-                                    blurRadius: 7, // Tingkat keburaman bayangan
-                                    offset: Offset(0, 3), // Posisi bayangan
-                                  ),
-                                ],
+                        Expanded(
+                          child: ListView(
+                            padding: EdgeInsets.only(left: 20, right: 20),
+                            children: [
+                              SizedBox(
+                                height: 18,
                               ),
-
-                              child: Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Container(
-                                      padding: EdgeInsets.all(16),
-                                      color: Color.fromARGB(255, 200, 189, 189),
-                                      child: Icon(Icons.water_drop, color: GlobalColors.darkbrown,),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.9, // Sesuaikan dengan lebar yang diinginkan
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.2), // Warna bayangan
+                                      spreadRadius: 5, // Menyebarkan bayangan
+                                      blurRadius:
+                                          7, // Tingkat keburaman bayangan
+                                      offset: Offset(0, 3), // Posisi bayangan
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'SENIN',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        '12/10/2021',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 170,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showPopupDialog(
-                                          context); // Fungsi yang ingin Anda panggil saat ikon diklik
-                                    },
-                                    child: Icon(Icons.more_horiz),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 18,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width *
-                                  0.9, // Sesuaikan dengan lebar yang diinginkan
-                              padding: EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.2), // Warna bayangan
-                                    spreadRadius: 5, // Menyebarkan bayangan
-                                    blurRadius: 7, // Tingkat keburaman bayangan
-                                    offset: Offset(0, 3), // Posisi bayangan
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
 
-                              child: Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Container(
-                                      padding: EdgeInsets.all(16),
-                                      color: Color.fromARGB(255, 200, 189, 189),
-                                      child: Icon(Icons.water_drop, color: GlobalColors.darkbrown,),
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Container(
+                                        padding: EdgeInsets.all(16),
+                                        color:
+                                            Color.fromARGB(255, 200, 189, 189),
+                                        child: Icon(
+                                          Icons.water_drop,
+                                          color: GlobalColors.darkbrown,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'SENIN',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'SENIN',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        '12/10/2021',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
+                                        SizedBox(
+                                          height: 5,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 170,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showPopupDialog(
-                                          context); // Fungsi yang ingin Anda panggil saat ikon diklik
-                                    },
-                                    child: Icon(Icons.more_horiz),
-                                  ),
-                                ],
+                                        Text(
+                                          '12/10/2021',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 170,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        showPopupDialog(
+                                            context); // Fungsi yang ingin Anda panggil saat ikon diklik
+                                      },
+                                      child: Icon(Icons.more_horiz),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 18,
-                            ),
-                           Container(
-                              width: MediaQuery.of(context).size.width *
-                                  0.9, // Sesuaikan dengan lebar yang diinginkan
-                              padding: EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.2), // Warna bayangan
-                                    spreadRadius: 5, // Menyebarkan bayangan
-                                    blurRadius: 7, // Tingkat keburaman bayangan
-                                    offset: Offset(0, 3), // Posisi bayangan
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 18,
                               ),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.9, // Sesuaikan dengan lebar yang diinginkan
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.2), // Warna bayangan
+                                      spreadRadius: 5, // Menyebarkan bayangan
+                                      blurRadius:
+                                          7, // Tingkat keburaman bayangan
+                                      offset: Offset(0, 3), // Posisi bayangan
+                                    ),
+                                  ],
+                                ),
 
-                              child: Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Container(
-                                      padding: EdgeInsets.all(16),
-                                      color: Color.fromARGB(255, 200, 189, 189),
-                                      child: Icon(Icons.water_drop, color: GlobalColors.darkbrown,),
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Container(
+                                        padding: EdgeInsets.all(16),
+                                        color:
+                                            Color.fromARGB(255, 200, 189, 189),
+                                        child: Icon(
+                                          Icons.water_drop,
+                                          color: GlobalColors.darkbrown,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'SENIN',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'SENIN',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        '12/10/2021',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
+                                        SizedBox(
+                                          height: 5,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 170,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showPopupDialog(
-                                          context); // Fungsi yang ingin Anda panggil saat ikon diklik
-                                    },
-                                    child: Icon(Icons.more_horiz),
-                                  ),
-                                ],
+                                        Text(
+                                          '12/10/2021',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 170,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        showPopupDialog(
+                                            context); // Fungsi yang ingin Anda panggil saat ikon diklik
+                                      },
+                                      child: Icon(Icons.more_horiz),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 18,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width *
-                                  0.9, // Sesuaikan dengan lebar yang diinginkan
-                              padding: EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.2), // Warna bayangan
-                                    spreadRadius: 5, // Menyebarkan bayangan
-                                    blurRadius: 7, // Tingkat keburaman bayangan
-                                    offset: Offset(0, 3), // Posisi bayangan
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 18,
                               ),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.9, // Sesuaikan dengan lebar yang diinginkan
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.2), // Warna bayangan
+                                      spreadRadius: 5, // Menyebarkan bayangan
+                                      blurRadius:
+                                          7, // Tingkat keburaman bayangan
+                                      offset: Offset(0, 3), // Posisi bayangan
+                                    ),
+                                  ],
+                                ),
 
-                              child: Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Container(
-                                      padding: EdgeInsets.all(16),
-                                      color: Color.fromARGB(255, 200, 189, 189),
-                                      child: Icon(Icons.water_drop, color: GlobalColors.darkbrown,),
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Container(
+                                        padding: EdgeInsets.all(16),
+                                        color:
+                                            Color.fromARGB(255, 200, 189, 189),
+                                        child: Icon(
+                                          Icons.water_drop,
+                                          color: GlobalColors.darkbrown,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'SENIN',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'SENIN',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        '12/10/2021',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 12,
+                                        SizedBox(
+                                          height: 5,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 170,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showPopupDialog(
-                                          context); // Fungsi yang ingin Anda panggil saat ikon diklik
-                                    },
-                                    child: Icon(Icons.more_horiz),
-                                  ),
-                                ],
+                                        Text(
+                                          '12/10/2021',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 170,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        showPopupDialog(
+                                            context); // Fungsi yang ingin Anda panggil saat ikon diklik
+                                      },
+                                      child: Icon(Icons.more_horiz),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                height: 18,
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.9, // Sesuaikan dengan lebar yang diinginkan
+                                padding: EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.2), // Warna bayangan
+                                      spreadRadius: 5, // Menyebarkan bayangan
+                                      blurRadius:
+                                          7, // Tingkat keburaman bayangan
+                                      offset: Offset(0, 3), // Posisi bayangan
+                                    ),
+                                  ],
+                                ),
+
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Container(
+                                        padding: EdgeInsets.all(16),
+                                        color:
+                                            Color.fromARGB(255, 200, 189, 189),
+                                        child: Icon(
+                                          Icons.water_drop,
+                                          color: GlobalColors.darkbrown,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'SENIN',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          '12/10/2021',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 170,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        showPopupDialog(
+                                            context); // Fungsi yang ingin Anda panggil saat ikon diklik
+                                      },
+                                      child: Icon(Icons.more_horiz),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ),
+                      ],
+                    )),
               ),
             ),
           ],
