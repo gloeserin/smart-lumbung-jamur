@@ -46,10 +46,10 @@ Widget notificationButton({
                     children: [
                       TextSpan(
                         text: mainText,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'PoppinsBold',
                           fontSize: 14,
-                          color: Color.fromARGB(255, 1, 52, 93),
+                          color: Color.fromARGB(255, 67, 49, 45),
                         ),
                       ),
                     ],
@@ -63,7 +63,7 @@ Widget notificationButton({
                         style: TextStyle(
                           fontFamily: 'PoppinsSemiBold',
                           fontSize: 11,
-                          color: Color.fromARGB(255, 1, 52, 93),
+                          color: Color.fromARGB(255, 67, 49, 45),
                         ),
                       ),
                     ],

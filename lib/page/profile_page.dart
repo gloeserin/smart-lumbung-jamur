@@ -41,10 +41,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 300,
                         ),
                         Text(
-                          'Smart Lumbung Jamur',
+                          'Mushroom Smart Home',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 22,
                             fontFamily: 'PoppinsMedium',
                             color: GlobalColors.darkbrown,
                             fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 60,
                         ),
 
                 ElevatedButton(

@@ -68,6 +68,10 @@ class _HistoryPageState extends State<HistoryPage> {
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
+                                side: BorderSide(
+                                  width: 1,
+                                  color: Color.fromARGB(255, 113, 60, 13),
+                                ),
                               ),
                               color: GlobalColors.darkbrown,
                               child: Padding(
@@ -133,8 +137,13 @@ class _HistoryPageState extends State<HistoryPage> {
                             Card(
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
+                                borderRadius: BorderRadius.circular(16),
+                                // side: BorderSide(
+                                //   width: 1,
+                                //   color: GlobalColors.darkbrown,
+                                // ),
+                              ),
+                             
                                 child: Container(
                                   width: 350,
                                   child: Padding(
@@ -166,7 +175,12 @@ class _HistoryPageState extends State<HistoryPage> {
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
+                                // side: BorderSide(
+                                //   width: 1,
+                                //   color: GlobalColors.brown,
+                                // ),
                               ),
+                              
                               child: Container(
                                 width: 350,
                                 child: Padding(
@@ -385,297 +399,6 @@ class _HistoryPageState extends State<HistoryPage> {
           ],
         ),
       ),
-      // body: Center(
-      //   child: Container(
-      //     padding: EdgeInsets.only(top: 25.0),
-      //     child: Column(
-      //       children: [
-      //         const Text(
-      //           'History',
-      //           style: TextStyle(
-      //             fontSize: 25,
-      //             fontFamily: 'Poppins',
-      //             color: Color(0xFF476072),
-      //           ),
-      //         ),
-      //         Container(
-      //           padding:
-      //               const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      //           child: Card(
-      //             shape: RoundedRectangleBorder(
-      //               borderRadius: BorderRadius.circular(16.0),
-      //             ),
-      //             color: Colors.white,
-      //             clipBehavior: Clip.antiAliasWithSaveLayer,
-      //             elevation: 3,
-      //             child: IntrinsicHeight(
-      //               child: InkWell(
-      //                 child: Row(
-      //                   crossAxisAlignment: CrossAxisAlignment.stretch,
-      //                   children: [
-      //                     Expanded(
-      //                         flex: 2,
-      //                         child: Padding(
-      //                           padding: EdgeInsets.all(8),
-      //                           child: Container(
-      //                             height: 50,
-      //                             width: 50,
-      //                             decoration: BoxDecoration(
-      //                               borderRadius: BorderRadius.circular(16),
-      //                               color: Color(0xFFA4907C),
-      //                             ),
-      //                             child: ClipRRect(
-      //                               borderRadius: BorderRadius.circular(10),
-      //                               child: Image.asset(
-      //                                 "assets/img/watering.PNG",
-      //                                 width: 50,
-      //                                 height: 50,
-      //                               ),
-      //                             ),
-      //                           ),
-      //                         )),
-      //                     Expanded(
-      //                       flex: 4,
-      //                       child: Padding(
-      //                         padding: const EdgeInsets.all(8.0),
-      //                         child: Column(
-      //                           crossAxisAlignment: CrossAxisAlignment.start,
-      //                           mainAxisAlignment:
-      //                               MainAxisAlignment.spaceEvenly,
-      //                           children: [
-      //                             Text(
-      //                               'Senin',
-      //                               style: TextStyle(
-      //                                 fontSize: 18,
-      //                                 fontFamily: 'Poppins',
-      //                                 color: Color.fromARGB(255, 22, 21, 19),
-      //                               ),
-      //                             ),
-      //                             Text(
-      //                               '12/10/2021',
-      //                               style: TextStyle(
-      //                                 fontSize: 14,
-      //                                 fontFamily: 'Poppins',
-      //                                 color: Color.fromARGB(255, 22, 21, 19),
-      //                               ),
-      //                             ),
-      //                             SizedBox(height: 20),
-      //                             Align(
-      //                               alignment: Alignment
-      //                                   .centerRight, // Mengatur posisi RichText ke kanan
-      //                               child: RichText(
-      //                                 text: TextSpan(
-      //                                   text: 'Tap for more',
-      //                                   style: TextStyle(
-      //                                       fontSize: 14.0,
-      //                                       color: Color(0xFF3F2305),
-      //                                       fontFamily: 'Poppins'),
-      //                                   children: <TextSpan>[
-      //                                     TextSpan(
-      //                                       text: ' info',
-      //                                       style: TextStyle(
-      //                                           fontSize: 14.0,
-      //                                           color: Color(0xFFA4907C),
-      //                                           fontFamily: 'Poppins'),
-      //                                       recognizer: TapGestureRecognizer()
-      //                                         ..onTap = () {
-      //                                           showPopupDialog(context);
-      //                                         },
-      //                                     ),
-      //                                   ],
-      //                                 ),
-      //                               ),
-      //                             ),
-      //                           ],
-      //                         ),
-      //                       ),
-      //                     ),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ),
-      //           ),
-      //         ),
-      // Container(
-      //   padding:
-      //       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      //   child: Card(
-      //     color: Color(0xFF334257),
-      //     clipBehavior: Clip.antiAliasWithSaveLayer,
-      //     elevation: 3,
-      //     child: IntrinsicHeight(
-      //       child: InkWell(
-      //         child: Row(
-      //           crossAxisAlignment: CrossAxisAlignment.stretch,
-      //           children: [
-      //             Expanded(
-      //               flex: 2,
-      //               child: Padding(
-      //                   padding: EdgeInsets.all(8),
-      //                   child: Container(
-      //                     height: 50,
-      //                     width: 50,
-      //                     child: ClipRRect(
-      //                       borderRadius: BorderRadius.circular(10),
-      //                       child: Image.asset(
-      //                         "assets/images/dispenser.png",
-      //                         width: 50,
-      //                         height: 50,
-      //                       ),
-      //                     ),
-      //                   )),
-      //             ),
-      //             Expanded(
-      //               flex: 4,
-      //               child: Padding(
-      //                 padding: const EdgeInsets.all(8.0),
-      //                 child: Column(
-      //                   crossAxisAlignment: CrossAxisAlignment.start,
-      //                   mainAxisAlignment:
-      //                       MainAxisAlignment.spaceEvenly,
-      //                   children: [
-      //                     Text(
-      //                       'Device',
-      //                       style: TextStyle(
-      //                           fontSize: 18,
-      //                           fontFamily: 'Poppins',
-      //                           color: Colors.white),
-      //                     ),
-      //                     Text(
-      //                       'b75354df-7ca2-4bf6-9f98-9984109a1db2',
-      //                       style: TextStyle(
-      //                           fontSize: 14,
-      //                           fontFamily: 'Poppins',
-      //                           color: Colors.white),
-      //                     ),
-      //                     SizedBox(height: 20),
-      //                     Align(
-      //                       alignment: Alignment
-      //                           .centerRight, // Mengatur posisi RichText ke kanan
-      //                       child: RichText(
-      //                         text: TextSpan(
-      //                           text: 'Tap for more',
-      //                           style: TextStyle(
-      //                               fontSize: 14.0,
-      //                               color: Colors.white,
-      //                               fontFamily: 'Poppins'),
-      //                           children: <TextSpan>[
-      //                             TextSpan(
-      //                               text: ' info',
-      //                               style: TextStyle(
-      //                                   fontSize: 14.0,
-      //                                   color: Color(0xFFA4907C),
-      //                                   fontFamily: 'Poppins'),
-      //                               recognizer: TapGestureRecognizer()
-      //                                 ..onTap = () {
-      //                                   showPopupDialog(context);
-      //                                 },
-      //                             ),
-      //                           ],
-      //                         ),
-      //                       ),
-      //                     ),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
-      // Container(
-      //   padding:
-      //       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      //   child: Card(
-      //     color: Color(0xFF334257),
-      //     clipBehavior: Clip.antiAliasWithSaveLayer,
-      //     elevation: 3,
-      //     child: IntrinsicHeight(
-      //       child: InkWell(
-      //         child: Row(
-      //           crossAxisAlignment: CrossAxisAlignment.stretch,
-      //           children: [
-      //             Expanded(
-      //               flex: 2,
-      //               child: Padding(
-      //                   padding: EdgeInsets.all(8),
-      //                   child: Container(
-      //                     height: 50,
-      //                     width: 50,
-      //                     child: ClipRRect(
-      //                       borderRadius: BorderRadius.circular(10),
-      //                       child: Image.asset(
-      //                         "assets/images/dispenser.png",
-      //                         width: 50,
-      //                         height: 50,
-      //                       ),
-      //                     ),
-      //                   )),
-      //             ),
-      //             Expanded(
-      //               flex: 4,
-      //               child: Padding(
-      //                 padding: const EdgeInsets.all(8.0),
-      //                 child: Column(
-      //                   crossAxisAlignment: CrossAxisAlignment.start,
-      //                   mainAxisAlignment:
-      //                       MainAxisAlignment.spaceEvenly,
-      //                   children: [
-      //                     Text(
-      //                       'Device',
-      //                       style: TextStyle(
-      //                         fontSize: 18,
-      //                         fontFamily: 'Poppins',
-      //                         color: Color(0xFFA4907C),
-      //                       ),
-      //                     ),
-      //                     Text(
-      //                       'b75354df-7ca2-4bf6-9f98-9984109a1db2',
-      //                       style: TextStyle(
-      //                         fontSize: 14,
-      //                         fontFamily: 'Poppins',
-      //                         color: Color(0xFFA4907C),
-      //                       ),
-      //                     ),
-      //                     SizedBox(height: 20),
-      //                     Align(
-      //                       alignment: Alignment
-      //                           .centerRight, // Mengatur posisi RichText ke kanan
-      //                       child: RichText(
-      //                         text: TextSpan(
-      //                           text: 'Tap for more',
-      //                           style: TextStyle(
-      //                               fontSize: 14.0,
-      //                               color: Colors.white,
-      //                               fontFamily: 'Poppins'),
-      //                           children: <TextSpan>[
-      //                             TextSpan(
-      //                               text: ' info',
-      //                               style: TextStyle(
-      //                                   fontSize: 14.0,
-      //                                   color: Color(0xFFA4907C),
-      //                                   fontFamily: 'Poppins'),
-      //                               recognizer: TapGestureRecognizer()
-      //                                 ..onTap = () {
-      //                                   showPopupDialog(context);
-      //                                 },
-      //                             ),
-      //                           ],
-      //                         ),
-      //                       ),
-      //                     ),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

@@ -61,12 +61,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Welcome Back!",
-                          style: TextStyle(fontFamily: "PoppinsBold", fontSize: 20, color: GlobalColors.brown),
+                          "Selamat Datang Kembali!",
+                          style: TextStyle(fontFamily: "PoppinsBold", fontSize: 17, color: GlobalColors.brown),
                         ),
                         Text(
-                          "Sign in to continue",
-                          style: TextStyle(fontFamily: "PoppinsMedium", fontSize: 13, color: GlobalColors.brown)
+                          "Silahkan login untuk memulai",
+                          style: TextStyle(fontFamily: "PoppinsMedium", fontSize: 12, color: GlobalColors.brown)
                         ),
                         SignForm(),
                         Spacer(),
@@ -122,6 +122,7 @@ class _SignFormState extends State<SignForm> {
   bool _isHidePassword = true;
   final TextEditingController emailControlle = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController ssidController = TextEditingController();
   // final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   void _togglePasswordVisibility() {
@@ -153,22 +154,22 @@ class _SignFormState extends State<SignForm> {
             height: 40,
           ),
           TextField(
-            controller: emailControlle,
+            controller: ssidController,
             cursorColor: GlobalColors.brown,
             decoration: InputDecoration(
-                labelText: 'Email/Username',
+                labelText: 'Nomor SSID',
                 labelStyle: TextStyle(
                   fontFamily: 'PoppinsSemiBold',
-                  fontSize: 14,
+                  fontSize: 13,
                   color: GlobalColors.brown,
                 ),
-                hintText: 'Enter your email/username',
+                hintText: 'Masukkan nomor SSID anda',
                 hintStyle: TextStyle(
                   color: Colors.grey,
-                  fontSize: 13,
+                  fontSize: 12,
                 ),
                 prefixIcon: Icon(
-                  Iconsax.user,
+                  Iconsax.global,
                   color: GlobalColors.darkbrown,
                   size: 18,
                 ),
@@ -179,7 +180,45 @@ class _SignFormState extends State<SignForm> {
                 floatingLabelStyle: TextStyle(
                   color: GlobalColors.brown,
                   fontFamily: 'PoppinsBold',
-                  fontSize: 18,
+                  fontSize: 16,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey, width: 1.5),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          TextField(
+            controller: emailControlle,
+            cursorColor: GlobalColors.brown,
+            decoration: InputDecoration(
+                labelText: 'Email',
+                labelStyle: TextStyle(
+                  fontFamily: 'PoppinsSemiBold',
+                  fontSize: 13,
+                  color: GlobalColors.brown,
+                ),
+                hintText: 'Masukkan email anda',
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                ),
+                prefixIcon: Icon(
+                  Iconsax.message,
+                  color: GlobalColors.darkbrown,
+                  size: 18,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade300, width: 2),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                floatingLabelStyle: TextStyle(
+                  color: GlobalColors.brown,
+                  fontFamily: 'PoppinsBold',
+                  fontSize: 16,
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey, width: 1.5),
@@ -196,21 +235,21 @@ class _SignFormState extends State<SignForm> {
             obscureText: _isHidePassword,
             cursorColor: GlobalColors.brown,
             decoration: InputDecoration(
-                labelText: 'Password',
+                labelText: 'Kata Sandi',
                 labelStyle: TextStyle(
                   fontFamily: 'PoppinsSemiBold',
-                  fontSize: 14,
+                  fontSize: 13,
                   color: GlobalColors.brown,
                 ),
-                hintText: 'Enter your password',
+                hintText: 'Masukkan kata sandi',
                 hintStyle: TextStyle(
                   color: Colors.grey,
-                  fontSize: 13,
+                  fontSize: 12,
                 ),
                 prefixIcon: Icon(
                   Iconsax.key,
                   color: GlobalColors.darkbrown,
-                  size: 18,
+                  size: 16,
                 ),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
@@ -275,9 +314,7 @@ class _SignFormState extends State<SignForm> {
                 color: Colors.white,
               ),
             ),
-          )
-
-
+          ),
           // normalElevatedButton('Login', login, GlobalColors.darkblueColor,
           //      Colors.white, BorderRadius.circular(14)),
           // // normalElevatedButton('Login', login, GlobalColors.darkblueColor,
@@ -286,30 +323,6 @@ class _SignFormState extends State<SignForm> {
       ),
     );
   }
-
-//   ElevatedButton normalElevatedButton(String buttonText,
-//     Color backgroundColor, Color foregroundColor, BorderRadius borderRadius, Function onPressed) {
-//   return ElevatedButton(
-//     onPressed: onPressed,
-//     style: ElevatedButton.styleFrom(
-//       backgroundColor: backgroundColor, // background color
-//       foregroundColor: foregroundColor, // text color
-//       padding: const EdgeInsets.symmetric(
-//           horizontal: 115, vertical: 20), // button padding
-//       shape: RoundedRectangleBorder(
-//         borderRadius: borderRadius, // button border radius
-//       ),
-//     ),
-//     child: Text(
-//       buttonText,
-//       style: TextStyle(
-//         fontSize: 14, 
-//         fontFamily: 'PoppinsSemiBold',
-//         color: Colors.white,
-//       ),
-//     ),
-//   );
-// }
 
   TextFormField normalTextFormFie(String labelText, bool isPasswordType,
       TextEditingController controller, Color borderColor, String hintText) {

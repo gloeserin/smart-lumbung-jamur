@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:lumbung_jamur/screen/boarding_screen.dart';
 import 'package:lumbung_jamur/screen/login_screen.dart';
 import 'package:page_animation_transition/animations/fade_animation_transition.dart';
 import 'package:page_animation_transition/page_animation_transition.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushAndRemoveUntil(
               context,
               PageAnimationTransition(
-                  page: LoginScreen(),
+                  page: Onbording(),
                   pageAnimationType: FadeAnimationTransition()),
               (route) => false,
             );
