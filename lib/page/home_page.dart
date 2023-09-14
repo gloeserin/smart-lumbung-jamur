@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage>
               Stack(
                 children: [
                   Container(
-                    height: 230,
+                    height: 250,
                     width: double.infinity,
                     color: GlobalColors.darkbrown,
                   ),
@@ -380,6 +380,8 @@ class _HomePageState extends State<HomePage>
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
+                                      Icon(FontAwesomeIcons.water, color: Color.fromARGB(255, 113, 183, 211),),
+                                      SizedBox(width: 14,),
                                       Text(
                                         "Penyiraman Manual",
                                         style: TextStyle(
@@ -779,10 +781,11 @@ class _HomePageState extends State<HomePage>
   }
 
   String formatDateTime(DateTime dateTime) {
-  initializeDateFormatting('id_ID', null);
-  final DateFormat formatter = DateFormat('EEEE, dd MMMM yyyy  |  HH:mm', 'id_ID');
-  return formatter.format(dateTime);
-}
+    initializeDateFormatting('id_ID', null);
+    final DateFormat formatter =
+        DateFormat('EEEE, dd MMMM yyyy  |  HH:mm', 'id_ID');
+    return formatter.format(dateTime);
+  }
 }
 
 class HomePageClipper extends CustomClipper<Path> {

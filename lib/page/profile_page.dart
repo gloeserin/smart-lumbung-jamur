@@ -77,13 +77,13 @@ class _ProfilePageState extends State<ProfilePage> {
                           title: Row(
                             children: [
                               Icon(
-                                FontAwesomeIcons.circleExclamation,
+                                FontAwesomeIcons.rightFromBracket,
                                 color: GlobalColors.darkbrown,
                                 size: 20,
                               ),
                               SizedBox(width: 12),
                               Text(
-                                'INFORMASI',
+                                'LOGOUT',
                                 style: TextStyle(
                                   fontSize: 17,
                                   fontFamily: 'PoppinsBold',

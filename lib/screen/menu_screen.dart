@@ -44,7 +44,7 @@ class _MenuScreenState extends State<MenuScreen> {
             color: Colors.white,
           ),
           Icon(
-            Icons.person,
+            Icons.logout,
             color: Colors.white,
           ),
         ],
