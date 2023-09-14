@@ -404,15 +404,9 @@ class _HomePageState extends State<HomePage>
                                                 showDialog(
                                                   context: context,
                                                   barrierDismissible: false,
-                                                  builder:
-                                                      (BuildContext context) {
+                                                  builder:(BuildContext context) {
                                                     return AlertDialog(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(14),
-                                                      ),
+                                                      shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(14),),
                                                       title: Row(
                                                         children: [
                                                           Icon(

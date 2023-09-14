@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lumbung_jamur/utils/global_color.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -17,86 +18,112 @@ class _HistoryPageState extends State<HistoryPage> {
           return AlertDialog(
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(18.0))),
-              content: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height - 400,
-                child: GestureDetector(
-                  onTap: () {
+              title: GestureDetector(
+                onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Column(
+                child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           children: [
                             Center(
-                              child: Column(children: const [
+                              child: Column(children: [
                                 Text(
                                   'Mushroom Home',
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF665A48),
+                                      fontSize: 18,
+                                      fontFamily: 'PoppinsBold',
+                                      color: GlobalColors.darkbrown,
                                     ),
                                 ),
+                                SizedBox(height: 13,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 6, right: 6),
+                                  child: Container(
+                                    child: Row(
+                                      children: [
+                                        Icon(FontAwesomeIcons.clock, color: GlobalColors.lightbrown, size: 20,),
+                                        SizedBox(width: 8,),
+                                        Text("12:00", style: TextStyle(fontFamily: 'PoppinsMedium', color: GlobalColors.lightbrown, fontSize: 15),),
+                                        Expanded(
+                                          child: Container(
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                Text('12 / 10 / 2021', style: TextStyle(fontFamily: 'PoppinsSemiBold', color: GlobalColors.lightbrown, fontSize: 15),),
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
                                
                               ]),
                             ),
-                            
                             const SizedBox(height: 10),
                             Card(
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
                               ),
+                              color: GlobalColors.darkbrown,
                               child: Padding(
                                 padding: const EdgeInsets.all(16),
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Suhu Maks',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            fontFamily: 'Poppins',
-                                           color: Color(0xFF665A48),
-                                          ),
+                                    Expanded(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              'Suhu Maks',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                fontFamily: 'Poppins',
+                                               color: Colors.white,
+                                              ),
+                                            ),
+                                            Text(
+                                              '35 °C',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: 'PoppinsSemiBold',
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Text(
-                                          '35 C',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Poppins',
-                                            color: Color(0xFFA4907C),
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Suhu Min',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            fontFamily: 'Poppins',
-                                            color: Color(0xFF665A48),
-                                          ),
+                                    Expanded(
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            Text(
+                                              'Suhu Min',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 14,
+                                                fontFamily: 'Poppins',
+                                               color: Colors.white,
+                                              ),
+                                            ),
+                                            Text(
+                                              '25 °C',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                fontFamily: 'PoppinsSemiBold',
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Text(
-                                          '25 C',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Poppins',
-                                            color: Color(0xFFA4907C),
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -117,18 +144,17 @@ class _HistoryPageState extends State<HistoryPage> {
                                         Text(
                                           'Penyiraman 1x',
                                           style: TextStyle(
-                                            fontWeight: FontWeight.bold,
                                             fontSize: 16,
-                                            fontFamily: 'Poppins',
-                                           color: Color(0xFF665A48),
+                                            fontFamily: 'PoppinsSemiBold',
+                                           color: GlobalColors.brown,
                                           ),
                                         ),
                                         Text(
-                                          'di waktu 12.00-12.05',
+                                          'di waktu 12:00 - 12:05',
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Poppins',
-                                            color: Color(0xFFA4907C),
+                                            color: GlobalColors.lightbrown,
                                           ),
                                         ),
                                       ],
@@ -150,18 +176,17 @@ class _HistoryPageState extends State<HistoryPage> {
                                       Text(
                                         'Penyiraman 2x',
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
                                           fontSize: 16,
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF665A48),
+                                          fontFamily: 'PoppinsSemiBold',
+                                          color: GlobalColors.brown,
                                         ),
                                       ),
                                       Text(
-                                        'di waktu 15.00-15.05',
+                                        'di waktu 15:00 - 15:02',
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFFA4907C),
+                                          color: GlobalColors.lightbrown,
                                         ),
                                       ),
                                     ],
@@ -171,28 +196,20 @@ class _HistoryPageState extends State<HistoryPage> {
                             )
                           ],
                         ),
+                        SizedBox(height: 50,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: const [
+                          children: [
                             Text(
-                              'Tap ',
+                              'Klik dimana saja untuk menutup',
                               style: TextStyle(
-                                  fontSize: 16, color: Color(0xFFA4907C)),
+                                  fontSize: 12, color: GlobalColors.lightbrown),
                             ),
-                            Text(
-                              'anywhere ',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(
-                              'to close',
-                              style: TextStyle(
-                                  fontSize: 16, color: Color(0xFFA4907C)),
-                            )
                           ],
                         )
                       ]),
-                ),
-              ));
+              ),
+              );
         });
   }
 
@@ -278,298 +295,87 @@ class _HistoryPageState extends State<HistoryPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(height: 20,),
                         Expanded(
-                          child: ListView(
-                            children: [
-                              SizedBox(
-                                height: 18,
-                              ),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 20, right: 20),
-                               child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey
-                                            .withOpacity(0.2), // Warna bayangan
-                                        spreadRadius: 5, // Menyebarkan bayangan
-                                        blurRadius: 7, // Tingkat keburaman bayangan
-                                        offset: Offset(0, 3), // Posisi bayangan
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Container(
-                                          padding: EdgeInsets.all(16),
-                                          color: GlobalColors.wateringcolor,
-                                          child: Icon(Icons.water_drop, color: GlobalColors.brown,),
+                          child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: 8,
+                            itemBuilder: (BuildContext context, int index) { 
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20, right: 20),
+                                    child: Container(
+                                        padding: EdgeInsets.all(16),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(12),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey
+                                                  .withOpacity(0.2), 
+                                              spreadRadius: 5, 
+                                              blurRadius: 7, 
+                                              offset: Offset(0, 3), 
+                                            ),
+                                          ],
+                                        ),
+                                        child: Row(
+                                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(12),
+                                              child: Container(
+                                                padding: EdgeInsets.all(16),
+                                                color: GlobalColors.wateringcolor,
+                                                child: Icon(Icons.water_drop, color: GlobalColors.brown,),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 16,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Senin',
+                                                  style: TextStyle(
+                                                    color: GlobalColors.darkbrown,
+                                                    fontFamily: 'PoppinsBold',
+                                                    fontSize: 16,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Text(
+                                                  '12 / 10 / 2021',
+                                                  style: TextStyle(
+                                                    fontFamily: 'PoppinsMedium',
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              width: 150,
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                showPopupDialog(
+                                                    context); 
+                                              },
+                                              child: Icon(Icons.more_horiz),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      SizedBox(
-                                        width: 16,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin',
-                                            style: TextStyle(
-                                              color: GlobalColors.darkbrown,
-                                              fontFamily: 'PoppinsBold',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            '12 / 10 / 2021',
-                                            style: TextStyle(
-                                              fontFamily: 'PoppinsMedium',
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 150,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showPopupDialog(
-                                              context); 
-                                        },
-                                        child: Icon(Icons.more_horiz),
-                                      ),
-                                    ],
                                   ),
-                                ),
-                             ),
-                              SizedBox(
-                                height: 18,
-                              ),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 20, right: 20),
-                               child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey
-                                            .withOpacity(0.2), // Warna bayangan
-                                        spreadRadius: 5, // Menyebarkan bayangan
-                                        blurRadius: 7, // Tingkat keburaman bayangan
-                                        offset: Offset(0, 3), // Posisi bayangan
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Container(
-                                          padding: EdgeInsets.all(16),
-                                          color: GlobalColors.wateringcolor,
-                                          child: Icon(Icons.water_drop, color: GlobalColors.brown,),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 16,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin',
-                                            style: TextStyle(
-                                              color: GlobalColors.darkbrown,
-                                              fontFamily: 'PoppinsBold',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            '12 / 10 / 2021',
-                                            style: TextStyle(
-                                              fontFamily: 'PoppinsMedium',
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 150,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showPopupDialog(
-                                              context); 
-                                        },
-                                        child: Icon(Icons.more_horiz),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                             ),
-                              SizedBox(
-                                height: 18,
-                              ),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 20, right: 20),
-                               child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey
-                                            .withOpacity(0.2), // Warna bayangan
-                                        spreadRadius: 5, // Menyebarkan bayangan
-                                        blurRadius: 7, // Tingkat keburaman bayangan
-                                        offset: Offset(0, 3), // Posisi bayangan
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Container(
-                                          padding: EdgeInsets.all(16),
-                                          color: GlobalColors.wateringcolor,
-                                          child: Icon(Icons.water_drop, color: GlobalColors.brown,),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 16,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin',
-                                            style: TextStyle(
-                                              color: GlobalColors.darkbrown,
-                                              fontFamily: 'PoppinsBold',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            '12 / 10 / 2021',
-                                            style: TextStyle(
-                                              fontFamily: 'PoppinsMedium',
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 150,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showPopupDialog(
-                                              context); 
-                                        },
-                                        child: Icon(Icons.more_horiz),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                             ),
-                              SizedBox(
-                                height: 18,
-                              ),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 20, right: 20),
-                               child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey
-                                            .withOpacity(0.2), // Warna bayangan
-                                        spreadRadius: 5, // Menyebarkan bayangan
-                                        blurRadius: 7, // Tingkat keburaman bayangan
-                                        offset: Offset(0, 3), // Posisi bayangan
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Container(
-                                          padding: EdgeInsets.all(16),
-                                          color: GlobalColors.wateringcolor,
-                                          child: Icon(Icons.water_drop, color: GlobalColors.brown,),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 16,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin',
-                                            style: TextStyle(
-                                              color: GlobalColors.darkbrown,
-                                              fontFamily: 'PoppinsBold',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            '12 / 10 / 2021',
-                                            style: TextStyle(
-                                              fontFamily: 'PoppinsMedium',
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 150,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showPopupDialog(
-                                              context); 
-                                        },
-                                        child: Icon(Icons.more_horiz),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                             ),
-                             
-                              
-                            ],
-                          ),
+                                  SizedBox(height: 18),
+                                ],
+                              );
+                             },)
+                           
                         ),
                       ],
                     ),
